@@ -2,13 +2,18 @@ package com.algs.binary.tree;
 
 public class BTN {
 	private int value;
+	
 	private BTN leftNode,rightNode;
+	
 	public int getValue() {
-		return value;
+		return this.value;
 	}
-	public void setValue(int value) {
-		this.value = value;
+
+	public void setValue(int val) {
+		this.value = val;
+		
 	}
+	
 	public BTN getLeftNode() {
 		return leftNode;
 	}
