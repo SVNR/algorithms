@@ -1,10 +1,12 @@
-package com.algs.binary.tree;
+package com.algs.test.binary.tree;
 
 import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import com.algs.binary.tree.BT;
 
 public class BTTest {
 	private BT bt;
