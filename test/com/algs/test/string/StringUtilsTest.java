@@ -19,4 +19,15 @@ public class StringUtilsTest {
 		Assert.assertEquals(s, "tset");
 	}
 
+	@Test
+	public void testfindFirstIndexOfSubstring(){
+		int index = StringUtils.findFirstIndexOfSubstring("testingfirstIndex","ing");
+		Assert.assertEquals(index, 4);
+	}
+	
+	@Test
+	public void testfindFirstIndexOfSubstring_NotFound(){
+		int index = StringUtils.findFirstIndexOfSubstring("testingfirstIndex","abc");
+		Assert.assertEquals(index, -1);
+	}
 }

@@ -1,8 +1,5 @@
 package com.algs.string;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class StringUtils {
 
 	public static  String reverse(String s){
@@ -32,4 +29,33 @@ public class StringUtils {
 		return new String(b);
 	}
 	
+	public static int findFirstIndexOfSubstring(String text,String sub){
+		
+		int firstIndex=-1;
+		int size=sub.length();
+		
+		
+		int j=0;
+		for(int i=0;i<text.length();i++){
+			
+			if(text.charAt(i)==sub.charAt(j)){//char is match.initial match of j=0, 
+				//so increment to compare next occurrence
+				j++;
+				if(firstIndex==-1)//note the first occurrence of matching char
+					firstIndex=i;
+				
+				if(j==size)//length of substring = matching char size in text so break.
+					break;
+				
+			}
+			else{
+				j=0;
+				firstIndex=-1;
+			}
+		}
+		
+		
+		return firstIndex;
+		
+	}
 }

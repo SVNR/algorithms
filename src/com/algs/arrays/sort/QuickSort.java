@@ -38,7 +38,7 @@ public class QuickSort {
 			}
 			if (i >= j)
 				break;
-			if (a[i] >= a[j]) {// it would be the case because the pointers i
+			if (a[i] >= a[j]) {// it would be the case i.e. redundant  because the pointers i
 								// and j are move to meet this condition.
 				// swap i and j elements
 				int tmp = a[i];
