@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.algs.binary.tree.BT;
+import com.algs.binary.tree.BTN;
 
 public class BTTest {
 	private BT bt;
@@ -80,6 +81,24 @@ public class BTTest {
   public void testHeight(){
 	  
 	  Assert.assertEquals(bt.getHeight(), 2);
+	  
+  }
+  
+  @Test
+  public void testExists(){
+	  BTN findNode=new BTN();
+	  findNode.setValue(10);
+	  boolean nodeExists = bt.hasNode(findNode);
+	  Assert.assertTrue(nodeExists);
+	  
+  }
+  
+  @Test
+  public void testNotExists(){
+	  BTN findNode=new BTN();
+	  findNode.setValue(11);
+	  boolean nodeExists = bt.hasNode(findNode);
+	  Assert.assertFalse(nodeExists);
 	  
   }
   
