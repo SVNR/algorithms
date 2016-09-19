@@ -102,4 +102,26 @@ public class BTTest {
 	  
   }
   
+  @Test
+  public void testNodePath(){
+	  BTN findNode=new BTN();
+	  findNode.setValue(10);
+	 List<BTN> path = bt.getPath(findNode);
+	 for (BTN btn : path) {
+		System.out.println(btn.getValue());
+	}
+	  Assert.assertNotNull(path);
+	  
+  }
+  
+  @Test
+  public void testNodePath_NotFound(){
+	  BTN findNode=new BTN();
+	  findNode.setValue(11);
+	 List<BTN> path = bt.getPath(findNode);
+	
+	  Assert.assertNull(path);
+	  
+  }
+  
 }

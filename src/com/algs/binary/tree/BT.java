@@ -55,6 +55,47 @@ public class BT {
 		return hasNode(this.rootNode,findNode);
 	}
 	
+	public List<BTN> getPath(BTN node){
+		List<BTN> path = new ArrayList<BTN>();
+		boolean hasValue =  getPath(this.rootNode,node,path);
+		if(hasValue)
+			return path;
+		else
+			return null;
+		
+		
+	}
+	
+	private boolean getPath(BTN parentNode, BTN node,List<BTN> path) {
+		boolean hasValue=false;
+		if(parentNode==null || node==null){
+			return false ;
+		}
+		path.add(parentNode);
+		if(parentNode.getValue()==node.getValue()){
+			 return true;
+		}else if(node.getValue()>parentNode.getValue()){
+			//path = addNode(path,node);
+			hasValue = getPath(parentNode.getRightNode(),node,path);
+		}else{
+			//path= addNode(path,node);
+			hasValue = getPath(parentNode.getLeftNode(),node,path);
+		}
+		
+		return hasValue;
+	}
+
+	private List<BTN> addNode(List<BTN> path, BTN node) {
+		if(path==null){
+			path = new ArrayList<BTN>();
+			
+		}
+		path.add(node);
+		
+		return path;
+		
+	}
+
 	private boolean hasNode(BTN rootNode,BTN findNode){
 		
 		boolean foundNode=false;
