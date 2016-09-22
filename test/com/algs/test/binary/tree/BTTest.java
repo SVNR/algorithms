@@ -43,6 +43,13 @@ public class BTTest {
 	Assert.assertEquals(preOrderList.get(0).intValue(), 40);
 	Assert.assertEquals(preOrderList.get(1).intValue(), 25);
 	Assert.assertEquals(preOrderList.get(4).intValue(), 78);
+	
+	List<Integer> preOrder_nonRecursive = bt.getPreOrder_NonRecursive();
+	Assert.assertNotNull(preOrder_nonRecursive);
+	Assert.assertEquals(preOrder_nonRecursive.size(), 5);
+	Assert.assertEquals(preOrder_nonRecursive.get(0).intValue(), 40);
+	Assert.assertEquals(preOrder_nonRecursive.get(1).intValue(), 25);
+	Assert.assertEquals(preOrder_nonRecursive.get(4).intValue(), 78);
   }
   
   @Test
@@ -59,6 +66,16 @@ public class BTTest {
 	Assert.assertEquals(postOrderList.get(0).intValue(), 10);
 	Assert.assertEquals(postOrderList.get(1).intValue(), 32);
 	Assert.assertEquals(postOrderList.get(4).intValue(), 40);
+	
+	//
+	List<Integer> postOrderNonRecursive=bt.getPostOrder_NonRecursive();
+	
+	Assert.assertNotNull(postOrderNonRecursive);
+	Assert.assertEquals(postOrderNonRecursive.size(), 5);
+	Assert.assertEquals(postOrderNonRecursive.get(0).intValue(), 10);
+	Assert.assertEquals(postOrderNonRecursive.get(1).intValue(), 32);
+	Assert.assertEquals(postOrderNonRecursive.get(4).intValue(), 40);
+	
   }
   
   @Test
@@ -75,6 +92,13 @@ public class BTTest {
 	Assert.assertEquals(inOrderList.get(0).intValue(), 10);
 	Assert.assertEquals(inOrderList.get(1).intValue(), 25);
 	Assert.assertEquals(inOrderList.get(4).intValue(), 78);
+	
+	List<Integer> nonRecursiveList = bt.getInOrder_NonRecursive();
+	Assert.assertNotNull(nonRecursiveList);
+	Assert.assertEquals(nonRecursiveList.size(), 5);
+	Assert.assertEquals(nonRecursiveList.get(0).intValue(), 10);
+	Assert.assertEquals(nonRecursiveList.get(1).intValue(), 25);
+	Assert.assertEquals(nonRecursiveList.get(4).intValue(), 78);
   }
   
   @Test

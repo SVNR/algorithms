@@ -1,7 +1,9 @@
 package com.algs.binary.tree;
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
+import java.util.Stack;
 
 public class BT {
 
@@ -50,6 +52,55 @@ public class BT {
 
 	}
 	
+	public List<Integer> getInOrder_NonRecursive(){
+		List<Integer> inOrderList = new ArrayList<Integer>();
+		return getInOrder_NonRecursive(this.rootNode,inOrderList);
+			
+		
+	}
+	
+	private List<Integer> getInOrder_NonRecursive(BTN parent,List<Integer> preOrderList) {
+		Stack<BTN> stack = new Stack<BTN>();
+		
+		while(parent!=null || !stack.isEmpty()){
+			
+			if(parent!=null){
+				stack.push(parent);
+				parent=parent.getLeftNode();
+			}else{
+				BTN node=stack.pop();
+				preOrderList.add(node.getValue());
+				parent = node.getRightNode();
+			}
+						
+		}
+		
+		return preOrderList;
+	}
+	
+	public List<Integer> getPreOrder_NonRecursive(){
+		List<Integer> preOrderList = new ArrayList<Integer>();
+		return getPreOrder_NonRecursive(this.rootNode,preOrderList);
+		
+	}
+
+	private List<Integer> getPreOrder_NonRecursive(BTN parent, List<Integer> preOrderList) {
+		Stack<BTN> stack = new Stack<BTN>();
+		stack.push(parent);
+		
+		while(!stack.isEmpty()){
+			parent = stack.pop();
+			if(parent!=null){
+				preOrderList.add(parent.getValue());
+				stack.push(parent.getRightNode());
+				stack.push(parent.getLeftNode());
+			}
+		}
+
+		
+		return preOrderList;
+	}
+
 	public boolean hasNode(BTN findNode){
 		
 		return hasNode(this.rootNode,findNode);
@@ -123,6 +174,36 @@ public class BT {
 
 		return getPostOrderList(this.rootNode, postOrderList);
 
+	}
+	public List<Integer> getPostOrder_NonRecursive(){
+		List<Integer> postOrderList = new ArrayList<Integer>();
+		return getPostOrder_NonRecursive(this.rootNode,postOrderList);
+	}
+	private List<Integer> getPostOrder_NonRecursive(BTN parent, List<Integer> postOrderList) {
+		Stack<BTN> s1 = new Stack<BTN>();
+		Stack<BTN> s2=new Stack<BTN>();
+		
+		//push the root to stack1
+		s1.push(parent);
+		
+		while(!s1.isEmpty()){
+			BTN node = s1.pop();//take the root node from s1
+			s2.push(node);
+			if(node.getLeftNode()!=null){//does it contain left to process? add it to s1
+				s1.push(node.getLeftNode());
+			}
+			if(node.getRightNode()!=null){//does it contain right node to process? add to s1
+				s1.push(node.getRightNode());
+			}
+		}
+		
+		//s2 contains all the nodes
+		while(!s2.isEmpty()){
+			postOrderList.add(s2.pop().getValue());
+		}
+		
+		
+		return postOrderList;
 	}
 
 	public List<Integer> traverseInOrder() {
