@@ -2,7 +2,9 @@ package com.algs.binary.tree;
 
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Stack;
 
 public class BT {
@@ -242,8 +244,23 @@ public class BT {
 		
 		//traverse left
 	}
-
 	
+	/*public Map<Integer,List<BTN>> getVertical(BTN parent){
+		Map<Integer,List<BTN>> map = new HashMap<Integer, List<BTN>>();
+		getVertical(parent,0,map);
+		return null;
+	}
+*/
+	
+	/*private Map<Integer, List<BTN>> getVertical(BTN parent, int level, Map<Integer, List<BTN>> map) {
+		//Do in order travel
+		if(parent==null){
+			return null;
+		}
+		
+	
+	}*/
+
 	/**
 	 * Gets the height of the tree
 	 * @param node
